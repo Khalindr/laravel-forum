@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'CategoryController@index')->name('home');
+
+//Route::get('/{id}', 'CategoryController@show')->name('category-list');
+
+Route::resource('messages', 'MessageController');
+
+Route::resource('comments', 'CommentController');
+
+Route::resource('files', 'FileController');
+
+Route::resource('categories', 'CategoryController');
