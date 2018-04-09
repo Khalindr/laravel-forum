@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Message;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+
+        return view('message.index', ['messages' => $messages]);
     }
 
     /**
@@ -24,7 +27,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        return view('message.create');
     }
 
     /**
@@ -35,7 +38,15 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = new Message();
+        $message->title = $request->input('title');
+        $message->text = $request->input('text');
+        $message->user_id = auth()->user()->id;
+        $message->category_id = $request->select('category');
+
+        $message->save();
+
+        return redirect()->route('index');
     }
 
     /**
@@ -46,7 +57,7 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        //
+        return view('message.show', ['message' => $message]);
     }
 
     /**
@@ -57,7 +68,7 @@ class MessageController extends Controller
      */
     public function edit(Message $message)
     {
-        //
+        return view('message.edit', ['message' => $message]);
     }
 
     /**
@@ -69,7 +80,13 @@ class MessageController extends Controller
      */
     public function update(Request $request, Message $message)
     {
-        //
+        $message->title = $request->input('title');
+        $message->text = $request->input('text');
+        $message->category_id = $request->select('category');
+
+        $message->save();
+
+        return redirect()->route('index');
     }
 
     /**
@@ -80,6 +97,7 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+        $message->delete();
+        return redirect()->route('index');
     }
 }
