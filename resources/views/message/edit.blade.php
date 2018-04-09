@@ -14,15 +14,15 @@
                             {{--</div>--}}
                         {{--@endif--}}
 
-                        <form method="POST" action="{{ route('message.store') }}">
+                        <form method="POST" action="{{ route('message.update', ['id' => $message->id]) }}">
+                            @method('PUT')
                             {{ csrf_field() }}
 
-                            <p><input type="text" name="user_id" placeholder="user_id"></p>
-                            <p><input type="text" name="category_id" placeholder="category_id"></p>
-                            <p><input type="text" name="title" placeholder="titre"></p>
-                            <p><textarea type="text" name="text" placeholder="texte"></textarea></p>
-                            <p><input type="submit" value="ajouter" ></p>
-
+                            <p><input type="text" name="user_id" placeholder="user_id" value="{{ $message->user_id }}"></p>
+                            <p><input type="text" name="category_id" placeholder="category_id" value="{{ $message->category_id }}"></p>
+                            <p><input type="text" name="title" placeholder="titre" value="{{ $message->titre }}"></p>
+                            <p><textarea type="text" name="text" placeholder="texte">{{ $message->texte }}</textarea></p>
+                            <p><input type="submit" value="Modifier" ></p>
 
                         </form>
                     </div>
