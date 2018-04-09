@@ -10,6 +10,7 @@
                     @section('content')
                         <div>
                             @foreach($categories as $category)
+                                <?php url()->current(); ?>
                                 <li><a href="/categories/{{$category->id}}">{{ $category->name }}</a></li>
                             @endforeach
                         </div>

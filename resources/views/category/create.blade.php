@@ -14,7 +14,7 @@
                             {{--</div>--}}
                         {{--@endif--}}
 
-                        <form method="POST" action="{{ route('category.store') }}">
+                        <form method="POST" action="{{ route('categories.store') }}">
                             {{ csrf_field() }}
 
                             <p><input type="text" name="parent_id" placeholder="parent_id ?"></p>
