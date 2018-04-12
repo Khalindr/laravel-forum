@@ -14,7 +14,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comment = Comment::all();
+
+        return view('comment.index', ['comments' => $comment]);
     }
 
     /**
@@ -24,7 +26,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        return view('comment.create');
     }
 
     /**
@@ -35,7 +37,14 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $commment = new Comment();
+        $commment->message_id = $request->input('message_id');
+        $commment->text = $request->input('text');
+        $commment->user_id = auth()->user()->id;
+
+        $commment->save();
+
+        return redirect()->route('home');
     }
 
     /**
@@ -46,7 +55,8 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        return view('comment.show', ['comment' => $comment]);
+
     }
 
     /**
@@ -57,7 +67,8 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        return view('comment.edit', ['comment' => $comment]);
+
     }
 
     /**
@@ -69,7 +80,13 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $comment->message_id = $request->input('message_id');
+        $comment->text = $request->input('text');
+        $comment->user_id = auth()->user()->id;
+
+        $comment->save();
+
+        return redirect()->route('home');
     }
 
     /**
@@ -80,6 +97,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect()->route('home');
     }
 }
