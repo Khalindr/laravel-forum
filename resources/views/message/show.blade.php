@@ -1,10 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-    <h2>{{ $message->title }}</h2>
-        <p>{{ $message->text }}</p>
-        <p>Ecrit par <a href="mailto:{{$message->user->email}}">{{ $message->user->name }}</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="">{{ $message->title }}</h2>
+                    <span class="">
+                        Ecrit par <a href="mailto:{{$message->user->email}}">{{ $message->user->name }}</a>
+                    </span>
+                    </div>
+
+                    <div class="panel-body">
+                        <p>{{ $message->text }}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 @endsection
-

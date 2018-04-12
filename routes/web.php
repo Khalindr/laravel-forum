@@ -19,6 +19,10 @@ Route::get('/', 'CategoryController@index')->name('home');
 
 Route::resource('messages', 'MessageController');
 
+Route::get('/messages/edit/{id}','MessageController@edit');
+
+Route::get('/messages/update','MessageController@update');
+
 Route::resource('comments', 'CommentController');
 
 Route::resource('files', 'FileController');

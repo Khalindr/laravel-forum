@@ -9,7 +9,7 @@
 
                         <div>
                             @foreach($messages as $message)
-                                <li><a href="/messages/{{$message->id}}">{{ $message->titre }}</a></li>
+                                <li><a href="/messages/{{$message->id}}">{{ $message->title }}</a></li>
                             @endforeach
                         </div>
                     </div>
