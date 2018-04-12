@@ -41,7 +41,8 @@ class MessageController extends Controller
         $message = new Message();
         $message->title = $request->input('title');
         $message->text = $request->input('text');
-        $message->user_id = auth()->user()->id;
+        $message->user_id = $request->input('user_id');
+//        $message->user_id = auth()->user()->id;
         $message->category_id = $request->input('category_id');
 
         $message->save();
@@ -82,11 +83,12 @@ class MessageController extends Controller
     {
         $message->title = $request->input('title');
         $message->text = $request->input('text');
-        $message->category_id = $request->input('category');
+        $message->category_id = $request->input('category_id');
+//        $message->user_id = $request->input('user_id');
 
         $message->save();
 
-        return redirect()->route('messages.index');
+        return redirect()->route('home');
     }
 
     /**

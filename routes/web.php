@@ -19,9 +19,9 @@ Route::get('/', 'CategoryController@index')->name('home');
 
 Route::resource('messages', 'MessageController');
 
-Route::get('/messages/edit/{id}','MessageController@edit');
-
-Route::get('/messages/update','MessageController@update');
+//Route::get('/messages/edit/{id}','MessageController@edit');
+//
+//Route::get('/messages/update','MessageController@update');
 
 Route::resource('comments', 'CommentController');
 
@@ -29,8 +29,8 @@ Route::resource('files', 'FileController');
 
 Route::resource('categories', 'CategoryController');
 
-Route::get('/categories/edit/{id}','CategoryController@edit');
-
-Route::get('/categories/update','CategoryController@update');
-
-Route::get('/categories/delete/{id}','CategoryController@destroy');
+//Route::get('/categories/edit/{id}','CategoryController@edit');
+//
+//Route::get('/categories/update','CategoryController@update');
+//
+//Route::get('/categories/delete/{id}','CategoryController@destroy');

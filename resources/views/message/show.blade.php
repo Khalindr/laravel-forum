@@ -14,7 +14,12 @@
 
                     <div class="panel-body">
                         <p>{{ $message->text }}</p>
-
+                        <form method="POST" action="{{ route('messages.destroy', ['id' => $message->id]) }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>
