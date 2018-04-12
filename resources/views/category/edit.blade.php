@@ -14,8 +14,8 @@
                             {{--</div>--}}
                         {{--@endif--}}
 
-                        <form method="POST" action="{{ route('category.update', ['id' => $category->id]) }}">
-                            @method('PUT')
+                        <form method="POST" action="{{ route('categories.update', ['id' => $category->id]) }}">
+                            <p class="hidden">@method('PUT')</p>
                             {{ csrf_field() }}
 
                             <p><input type="text" name="parent_id" placeholder="parent_id ?" value="{{ $category->parent_id }}"></p>

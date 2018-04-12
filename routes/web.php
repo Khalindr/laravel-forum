@@ -24,3 +24,9 @@ Route::resource('comments', 'CommentController');
 Route::resource('files', 'FileController');
 
 Route::resource('categories', 'CategoryController');
+
+Route::get('/categories/edit/{id}','CategoryController@edit');
+
+Route::get('/categories/update','CategoryController@update');
+
+Route::get('/categories/delete/{id}','CategoryController@destroy');
