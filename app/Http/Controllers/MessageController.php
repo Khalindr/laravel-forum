@@ -82,7 +82,7 @@ class MessageController extends Controller
     {
         $message->title = $request->input('title');
         $message->text = $request->input('text');
-        $message->category_id = $request->select('category');
+        $message->category_id = $request->input('category');
 
         $message->save();
 
