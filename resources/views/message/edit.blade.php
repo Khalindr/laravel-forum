@@ -20,8 +20,8 @@
 
                             <p><input type="text" name="user_id" placeholder="user_id" value="{{ $message->user_id }}"></p>
                             <p><input type="text" name="category_id" placeholder="category_id" value="{{ $message->category_id }}"></p>
-                            <p><input type="text" name="title" placeholder="titre" value="{{ $message->titre }}"></p>
-                            <p><textarea type="text" name="text" placeholder="texte">{{ $message->texte }}</textarea></p>
+                            <p><input type="text" name="title" placeholder="titre" value="{{ $message->title }}"></p>
+                            <p><textarea type="text" name="text" placeholder="texte">{{ $message->text }}</textarea></p>
                             <p><input type="submit" value="Modifier" ></p>
 
                         </form>

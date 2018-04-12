@@ -14,7 +14,7 @@
                             {{--</div>--}}
                         {{--@endif--}}
 
-                        <form method="POST" action="{{ route('message.store') }}">
+                        <form method="POST" action="{{ route('messages.store') }}">
                             {{ csrf_field() }}
 
                             <p><input type="text" name="user_id" placeholder="user_id"></p>
