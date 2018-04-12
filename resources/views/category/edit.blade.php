@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
                     <div class="panel-heading">Modification d'une catégorie</div>
 
                     <div class="panel-body">
@@ -15,7 +11,7 @@
                         {{--@endif--}}
 
                         <form method="POST" action="{{ route('categories.update', ['id' => $category->id]) }}">
-                            
+
                             {{ csrf_field() }}
 
                             <p><input type="text" name="parent_id" placeholder="parent_id ?" value="{{ $category->parent_id }}"></p>
@@ -30,8 +26,5 @@
                         {{ dump($category->parent_id) }}
                         {{ dump($category->name) }}
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 @endsection
