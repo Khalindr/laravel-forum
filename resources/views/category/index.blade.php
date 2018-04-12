@@ -7,14 +7,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Toutes les catégories</div>
 
-                    @section('content')
-                        <div>
+
+                        <div class="panel-body">
                             @foreach($categories as $category)
                                 <?php url()->current(); ?>
                                 <li><a href="/categories/{{$category->id}}">{{ $category->name }}</a></li>
                             @endforeach
                         </div>
-                    @endsection
+
                     </div>
                 </div>
             </div>

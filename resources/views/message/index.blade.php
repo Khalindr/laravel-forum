@@ -7,13 +7,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Messages de la catégorie XXX</div>
 
-                    @section('content')
                         <div>
                             @foreach($messages as $message)
                                 <li><a href="/messages/{{$message->id}}">{{ $message->titre }}</a></li>
                             @endforeach
                         </div>
-                    @endsection
                     </div>
                 </div>
             </div>
