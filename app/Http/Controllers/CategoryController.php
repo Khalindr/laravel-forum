@@ -84,7 +84,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('category');
+        return redirect()->route('home');
     }
 
     /**
