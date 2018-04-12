@@ -43,7 +43,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('category.index');
+        return redirect()->route('home');
     }
 
     /**
