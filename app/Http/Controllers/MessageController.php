@@ -46,7 +46,7 @@ class MessageController extends Controller
 
         $message->save();
 
-        return redirect()->route('index');
+        return redirect()->route('messages.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class MessageController extends Controller
 
         $message->save();
 
-        return redirect()->route('index');
+        return redirect()->route('messages.index');
     }
 
     /**
@@ -98,6 +98,6 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         $message->delete();
-        return redirect()->route('index');
+        return redirect()->route('messages.index');
     }
 }

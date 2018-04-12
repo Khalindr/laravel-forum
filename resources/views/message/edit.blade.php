@@ -14,8 +14,8 @@
                             {{--</div>--}}
                         {{--@endif--}}
 
-                        <form method="POST" action="{{ route('message.update', ['id' => $message->id]) }}">
-                            @method('PUT')
+                        <form method="POST" action="{{ route('messages.update', ['id' => $message->id]) }}">
+                            <p class="hidden">@method('PUT')</p>
                             {{ csrf_field() }}
 
                             <p><input type="text" name="user_id" placeholder="user_id" value="{{ $message->user_id }}"></p>
