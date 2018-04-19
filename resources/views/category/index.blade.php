@@ -18,7 +18,7 @@
                                             <button type="submit" class="btn btn-danger">Supprimer</button>
                                         </form>
                                     </div>
-                                    <a href="/categories/{{$category->id}}" class="list-group-item">
+                                    <a href="/categories/showMessages/{{$category->id}}" class="list-group-item">
                                         <h4>{{$category->name}}</h4>
                                     </a>
                                 @endforeach
