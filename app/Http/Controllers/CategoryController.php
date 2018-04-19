@@ -113,8 +113,7 @@ class CategoryController extends Controller
     public function showMessages(Category $category)
     {
         $id_category = $category->id;
-//        if ($category->parent_id) {
-//            $id_parent = $category->parent_id;
+
         $query = 'SELECT * FROM categories WHERE parent_id = "' . $id_category . '"';
         $subcategories = DB::select($query);
 
@@ -122,11 +121,19 @@ class CategoryController extends Controller
 
         var_dump($subcat['id']);
 
-//        }
         $qry = 'SELECT * FROM messages WHERE category_id = "' . $id_category . '"';
         $message = DB::select($qry);
 
-        return view('category.show', ['message' => $message], ['category' => $category], ['subcategories' => $subcat]);
+        $cat = array('Parent'=>['category' => array('name'=>$category->name)], 'Enfant'=>['subcategories' => $subcat]);
+
+        foreach ($cat as $key=>$value){
+
+            foreach ($value as $k=>$v){
+                var_dump($v);
+            }
+        }
+
+        return view('category.show', ['message' => $message],['cat'=>$cat] );
     }
 
 }
