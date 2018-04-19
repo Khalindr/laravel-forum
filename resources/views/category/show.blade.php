@@ -7,11 +7,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ $category->name }}</div>
                     @foreach( $message as $mes)
-                    {{$mes->title}}
+                        {{$mes->title}}
                     @endforeach
-                    @foreach( $sub_categories as $sub)
-                        {{$sub->name}}
-                    @endforeach
+                    @if($sub_categories)
+                        @foreach( $sub_categories as $sub)
+                            {{$sub->name}}
+                        @endforeach
+                    @endif
                     <div class="panel-body">
 
                     </div>
