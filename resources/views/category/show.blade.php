@@ -9,6 +9,9 @@
                     @foreach( $message as $mes)
                     {{$mes->title}}
                     @endforeach
+                    @foreach( $sub_categories as $sub)
+                        {{$sub->name}}
+                    @endforeach
                     <div class="panel-body">
 
                     </div>

@@ -7,8 +7,8 @@ use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-use DB ;
-use App\Http\Requests ;
+use DB;
+use App\Http\Requests;
 
 class CategoryController extends Controller
 {
@@ -36,7 +36,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -53,7 +53,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
@@ -64,7 +64,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
@@ -76,8 +76,8 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category)
@@ -94,7 +94,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)
@@ -103,17 +103,25 @@ class CategoryController extends Controller
         return redirect()->route('home');
     }
 
-    public function processForm() {
-        $category  = Input::get('category') ;
+    public function processForm()
+    {
+        $category = Input::get('category');
 
-        return Redirect::to('showMessages/'.$category) ;
+        return Redirect::to('showMessages/' . $category);
     }
 
-    public function showMessages(Category $category) {
+    public function showMessages(Category $category)
+    {
+        if ($category->parent_id && $category->id != $category->parent_id) {
+            $id_parent = $category->parent_id;
+            $query = 'SELECT * FROM categories WHERE parent_id = "' . $id_parent . '"';
+            $sub_categories = DB::select($query);
+        }
         $id_category = $category->id;
-        $qry = 'SELECT * FROM messages WHERE category_id = "'.$id_category .'"';
+        $qry = 'SELECT * FROM messages WHERE category_id = "' . $id_category . '"';
         $message = DB::select($qry);
-        return view('category.show', ['message' => $message],['category'=>$category]);
+
+        return view('category.show', ['message' => $message], ['category' => $category], ['sub_categories' => $sub_categories]);
     }
 
 }
