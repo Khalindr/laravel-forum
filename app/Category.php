@@ -10,4 +10,10 @@ class Category extends Model
     {
         return $this->hasMany('App\Message');
     }
+
+
+    public function getIdParent() {
+        return parent::__get('parent_id');
+    }
+
 }

@@ -112,7 +112,7 @@ class CategoryController extends Controller
 
     public function showMessages(Category $category)
     {
-        if ($category->parent_id && $category->id) {
+        if ($category->parent_id ) {
             $id_parent = $category->parent_id;
             $query = 'SELECT * FROM categories WHERE parent_id = "' . $id_parent . '"';
             $sub_categories = DB::select($query);
