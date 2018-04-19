@@ -44,7 +44,6 @@ class CategoryController extends Controller
         $category = new Category();
         $category->parent_id = $request->input('parent_id');
         $category->name = $request->input('name');
-//        $category->user_id = auth()->user()->id;
 
         $category->save();
 
