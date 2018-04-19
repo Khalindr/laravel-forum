@@ -10,13 +10,14 @@
                             {{--</div>--}}
                         {{--@endif--}}
 
-                        <form method="POST" action="{{ route('messages.store') }}">
+                        <form method="POST" action="{{ route('messages.store') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <p><input type="text" name="user_id" placeholder="user_id"></p>
                             <p><input type="text" name="category_id" placeholder="category_id"></p>
                             <p><input type="text" name="title" placeholder="titre"></p>
                             <p><textarea type="text" name="text" placeholder="texte"></textarea></p>
+                            <p><input type="file" name="file"></p>
                             <p><input type="submit" value="ajouter" ></p>
 
 
