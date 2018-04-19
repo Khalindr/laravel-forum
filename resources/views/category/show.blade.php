@@ -9,8 +9,9 @@
                     @foreach( $message as $mes)
                         {{$mes->title}}
                     @endforeach
-                    @if(! empty($sub_categories))
-                        @foreach( $sub_categories as $sub)
+                    {{$subcategories}}
+                    @if(! empty($subcategories))
+                        @foreach( $subcategories as $sub)
                             {{$sub->name}}
                         @endforeach
                     @endif
