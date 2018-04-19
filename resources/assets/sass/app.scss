@@ -13,3 +13,18 @@
 .hidden {
   display: none;
 }
+
+.buttons-edit {
+  position:absolute;
+  right: 5px;
+  z-index:55;
+  display: inline-block;
+}
+
+.btn {
+  &.add {
+    top: 30px;
+    position:absolute;
+    right: 30px;
+  }
+}
