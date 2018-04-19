@@ -117,13 +117,16 @@ class CategoryController extends Controller
 //            $id_parent = $category->parent_id;
         $query = 'SELECT * FROM categories WHERE parent_id = "' . $id_category . '"';
         $sub_categories = DB::select($query);
-        var_dump($sub_categories);
-        die;
+
+        $sub_cat = json_decode(json_encode($sub_categories[0]), true);
+
+        var_dump($sub_cat['id']);
+
 //        }
         $qry = 'SELECT * FROM messages WHERE category_id = "' . $id_category . '"';
         $message = DB::select($qry);
 
-        return view('category.show', ['message' => $message], ['category' => $category], ['sub_categories' => $sub_categories]);
+        return view('category.show', ['message' => $message], ['category' => $category], ['sub_categories' => $sub_cat]);
     }
 
 }

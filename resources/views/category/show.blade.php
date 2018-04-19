@@ -9,7 +9,7 @@
                     @foreach( $message as $mes)
                         {{$mes->title}}
                     @endforeach
-                    @if($sub_categories)
+                    @if(! empty($sub_categories))
                         @foreach( $sub_categories as $sub)
                             {{$sub->name}}
                         @endforeach
