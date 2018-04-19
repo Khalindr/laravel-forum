@@ -46,8 +46,8 @@ class MessageController extends Controller
         $message->title = $request->input('title');
         $message->text = $request->input('text');
         $message->file = $request->file('file')->store('public');
-        $message->user_id = $request->input('user_id');
-//        $message->user_id = auth()->user()->id;
+//        $message->user_id = $request->input('user_id');
+        $message->user_id = auth()->user()->id;
         $message->category_id = $request->input('category_id');
 
         $message->save();

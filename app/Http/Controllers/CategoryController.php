@@ -127,7 +127,6 @@ class CategoryController extends Controller
         $cat = array('Parent'=>['category' => array('name'=>$category->name)], 'Enfant'=>['subcategories' => $subcat]);
 
         foreach ($cat as $key=>$value){
-
             foreach ($value as $k=>$v){
                 var_dump($v);
             }

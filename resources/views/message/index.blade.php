@@ -26,6 +26,7 @@
                                         </div>
                                         <div class="list-group-item-text">
                                             {{ $message->text }}
+                                            <p class="author pull-right">Par : <strong>{{ $message->user->name }}</strong></p>
 
                                         </div>
 
