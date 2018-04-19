@@ -21,7 +21,7 @@
                         <div class="list-group-item">
                             @foreach($message->comments as $comment)
                                 <div class="list-group-item">
-                                    <h4 class="">Par ...</h4>
+                                    <h4 class="">Par {{ $comment->user->name }}</h4>
                                     <p>{{ $comment->text }}</p>
                                 </div>
                             @endforeach
