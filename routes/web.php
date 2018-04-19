@@ -14,7 +14,8 @@
 Auth::routes();
 
 Route::get('/', 'CategoryController@index')->name('home');
-Route::get('/showMessages/{category}','CategoryController@showMessages');
+//Route::get('showMessages/{category}','CategoryController@showMessages');
+Route::get('showMessages', ['as' => 'showMessages', 'uses' => 'CategoryController@showMessages']);
 
 //Route::get('/{id}', 'CategoryController@show')->name('category-list');
 

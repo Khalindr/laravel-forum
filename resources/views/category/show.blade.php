@@ -6,7 +6,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ $category->name }}</div>
-
+                    @foreach( $message as $mes)
+                    {{$mes->title}}
+                    @endforeach
                     <div class="panel-body">
 
                     </div>

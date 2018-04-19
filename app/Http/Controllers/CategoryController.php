@@ -110,10 +110,12 @@ class CategoryController extends Controller
         return Redirect::to('showMessages/'.$category) ;
     }
 
-    public function showMessages($category) {
-        $qry = 'SELECT * FROM Messages WHERE category_id LIKE "'.$category .'"';
+    public function showMessages(Category $category) {
+        $id_category  = Input::get('category') ;
+        var_dump($id_category);die;
+        $qry = 'SELECT * FROM messages WHERE category_id = "'.$id_category .'"';
         $message = DB::select($qry);
-        return view('category.show', ['message' => $message]);
+        return view('category.show', ['message' => $message],['category'=>$category]);
     }
 
 }
