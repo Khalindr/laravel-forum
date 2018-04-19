@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use DB ;
+use App\Http\Requests ;
 
 class CategoryController extends Controller
 {
@@ -98,4 +103,19 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('home');
     }
+
+    public function processForm() {
+        $category  = Input::get('category') ;
+
+        return Redirect::to('showMessages/'.$category) ;
+    }
+
+    public function showMessages($category) {
+        $qry = 'SELECT * FROM Messages WHERE category_id LIKE "'.$category .'"';
+        $message = DB::select($qry);
+        return view('category.show', ['message' => $message]);
+    }
+
 }
+
+

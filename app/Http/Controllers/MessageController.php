@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use DB ;
+use App\Http\Requests ;
 
 class MessageController extends Controller
 {
@@ -102,4 +106,6 @@ class MessageController extends Controller
         $message->delete();
         return redirect()->route('messages.index');
     }
+
+
 }
