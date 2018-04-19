@@ -11,7 +11,7 @@
 
                     <div class="panel-body">
                         <p>{{ $message->text }}</p>
-                        <p><img src="{{ Storage::url($message->file) }}"></p>
+                        <p><img src="{{ Storage::url($message->file) }}">sers</p>
                         <form method="POST" action="{{ route('messages.destroy', ['id' => $message->id]) }}">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="DELETE">
