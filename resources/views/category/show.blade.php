@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="panel-heading">
-        <h2>{{ $cat->name }}</h2>
+        <h2>{{ $cat->name }}</h2><a href="/messages/create" class="pull-right"><button class="btn btn-primary add">Ajouter</button></a>
     </div>
 
     <div class="panel-body">
