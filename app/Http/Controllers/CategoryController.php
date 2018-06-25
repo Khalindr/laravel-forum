@@ -69,6 +69,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        $this->authorize('show',$category);
+
         return view('category.edit', ['category' => $category]);
 
     }
@@ -82,6 +84,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $this->authorize('show',$category);
+
         $category->parent_id = $request->input('parent_id');
         $category->name = $request->input('name');
 //        $category->user_id = auth()->user()->id;
@@ -99,6 +103,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        $this->authorize('show',$category);
+
         $category->delete();
         return redirect()->route('home');
     }

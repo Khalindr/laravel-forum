@@ -67,6 +67,8 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
+        $this->authorize('show',$comment);
+
         return view('comment.edit', ['comment' => $comment]);
 
     }
@@ -80,6 +82,8 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
+        $this->authorize('show',$comment);
+
         $comment->message_id = $request->input('message_id');
         $comment->text = $request->input('text');
         $comment->user_id = auth()->user()->id;
@@ -97,6 +101,8 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
+        $this->authorize('show',$comment);
+
         $comment->delete();
         return redirect()->route('home');
     }

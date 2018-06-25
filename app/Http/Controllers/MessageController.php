@@ -74,6 +74,8 @@ class MessageController extends Controller
      */
     public function edit(Message $message)
     {
+        $this->authorize('show',$message);
+
         return view('message.edit', ['message' => $message]);
     }
 
@@ -86,6 +88,8 @@ class MessageController extends Controller
      */
     public function update(Request $request, Message $message)
     {
+        $this->authorize('show',$message);
+
         $message->title = $request->input('title');
         $message->text = $request->input('text');
         $message->file = $request->file('file')->store('public');
@@ -105,6 +109,8 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
+        $this->authorize('show',$message);
+
         $message->delete();
         return redirect()->route('messages.index');
     }
