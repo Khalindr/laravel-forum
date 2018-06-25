@@ -119,20 +119,22 @@ class CategoryController extends Controller
 
         $subcat = json_decode(json_encode($subcategories[0]), true);
 
-        var_dump($subcat['id']);
 
-        $qry = 'SELECT * FROM messages WHERE category_id = "' . $id_category . '"';
-        $message = DB::select($qry);
+        $messages = DB::table('messages')
+            ->where('category_id', '=', '1')
+            ->get();
+
+
 
         $cat = array('Parent'=>['category' => array('name'=>$category->name)], 'Enfant'=>['subcategories' => $subcat]);
 
         foreach ($cat as $key=>$value){
             foreach ($value as $k=>$v){
-                var_dump($v);
+//                var_dump($v);
             }
         }
 
-        return view('category.show', ['message' => $message],['cat'=>$cat] );
+        return view('category.show',['messages'=>$messages], ['cat'=>$cat] );
     }
 
 }
