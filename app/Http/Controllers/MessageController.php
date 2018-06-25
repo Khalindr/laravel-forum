@@ -45,7 +45,11 @@ class MessageController extends Controller
         $message = new Message();
         $message->title = $request->input('title');
         $message->text = $request->input('text');
-        $message->file = $request->file('file')->store('public');
+        if($request->file('file')) {
+	        $message->file = $request->file('file')->store('public');
+        } else {
+        	$message->file = null;
+        }
 //        $message->user_id = $request->input('user_id');
         $message->user_id = auth()->user()->id;
         $message->category_id = $request->input('category_id');
