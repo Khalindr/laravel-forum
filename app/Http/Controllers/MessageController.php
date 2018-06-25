@@ -56,7 +56,7 @@ class MessageController extends Controller
 
         $message->save();
 
-        return redirect()->route('messages.index');
+        return redirect()->route('categories.index');
     }
 
     /**
