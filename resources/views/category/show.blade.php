@@ -36,6 +36,7 @@
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
                     </div>
+                    {{--<p class="author pull-right">Par : <strong>{{ $mes->user->name }}</strong></p>--}}
                     <a href="/messages/{{$mes->id}}" class="list-group-item">
                         <h4>{{$mes->title}}</h4><span style="font-style: italic;">{{$mes->created_at}}</span>
                     </a>
