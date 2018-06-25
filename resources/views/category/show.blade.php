@@ -39,8 +39,8 @@
                     <a href="/messages/{{$mes->id}}" class="list-group-item">
                         <h4>{{$mes->title}}</h4><span style="font-style: italic;">{{$mes->created_at}}</span>
                         <p class="author pull-right">Par : <strong>{{ $mes->user_id }}</strong></p>
-                        {{--{{request()->get('user')->where()}}--}}
-                        {{--{{ $mes->user->name }}--}}
+                        {{ $user}}
+
                     </a>
 
                 @endforeach

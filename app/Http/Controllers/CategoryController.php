@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Message;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -129,14 +130,24 @@ class CategoryController extends Controller
             ->where('category_id', '=', $id_category)
             ->get();
 
+        foreach ($messages as $mes){
+            $id_user = $mes->user_id;
+
+            $user = DB::table('users')
+                ->select('name')
+                ->where('id', '=', $id_user)
+                ->get();
+        }
+
+
 
 
 //        $cat = array('Parent'=>['category' => array('name'=>$category->name)], 'Enfant'=>['subcategories' => $subcat]);
 
         $cat = $category;
+        var_dump($user);
 
-
-        return view('category.show',['messages'=>$messages], ['cat'=>$cat,'subcat'=>$subcat]);
+        return view('category.show',['messages'=>$messages, 'user'=>$user], ['cat'=>$cat,'subcat'=>$subcat]);
     }
 
 }
